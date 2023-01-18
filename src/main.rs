@@ -10,6 +10,7 @@ use smooth_bevy_cameras::{
     controllers::unreal::{UnrealCameraBundle, UnrealCameraController, UnrealCameraPlugin},
     LookTransformPlugin,
 };
+use std::f32::consts::TAU;
 use std::iter;
 
 fn main() {
@@ -103,6 +104,11 @@ fn spawn_scene(
                             ..default()
                         },
                         shadows_enabled: true,
+                        ..default()
+                    },
+                    transform: Transform {
+                        translation: Vec3::new(0.0, 2.0, 0.0),
+                        rotation: Quat::from_rotation_x(-TAU / 8.),
                         ..default()
                     },
                     ..default()
