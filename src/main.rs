@@ -161,10 +161,11 @@ fn navigate(
                 // Convert polygon path to a path of Vec3s.
                 match perform_string_pulling_on_path(&nav_mesh, start_pos, end_pos, &path) {
                     Ok(string_path) => {
-                        let path = iter::once(start_pos)
-                            .chain(string_path.into_iter())
-                            .chain(iter::once(end_pos));
-                        for (a, b) in path.clone().zip(path.skip(1)) {
+                        for (a, b) in string_path
+                            .clone()
+                            .into_iter()
+                            .zip(string_path.into_iter().skip(1))
+                        {
                             lines.line_colored(a, b, 0., Color::RED);
                         }
                     }
