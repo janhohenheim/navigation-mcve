@@ -46,7 +46,7 @@ fn main() {
             step_height: 3,
             min_region_area: 100,
             merge_region_area: 500,
-            max_contour_simplification_error: 0.5,
+            max_contour_simplification_error: 1.1,
             max_edge_length: 80,
         })
         .insert_resource(Msaa { samples: 4 })
